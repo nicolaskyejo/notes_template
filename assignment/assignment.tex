@@ -1,0 +1,115 @@
+\documentclass[11pt,a4paper,oneside]{article}
+\title{Course name TX00XXXX-1337\\Assignment name}
+\author{Name}
+
+%packages%
+
+\usepackage{luacode}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{hyperref}  		%for links
+\hypersetup{colorlinks,breaklinks,
+            urlcolor=[RGB]{0,0,0},    
+            linkcolor=[RGB]{0,0,0}
+            } 
+\usepackage{url}
+\urlstyle{same}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\setmainfont{Arial}
+%\usepackage[nottoc]{tocbibind}
+
+\linespread{1.5} %line spacing
+
+\makeatletter
+\renewcommand{\@dotsep}{10000} 
+\makeatother
+
+
+%margins
+\usepackage[top=2.5cm, bottom=3cm, left=4cm, right=2cm, nofoot]{geometry}
+\setlength{\parindent}{0pt} %first line of paragraph not indented
+\setlength{\parskip}{16.5pt} %one empty line to separate paragraph
+
+\usepackage{fancyhdr}     %package for fancy header and footers
+\usepackage{lastpage}     %records the last page number
+\pagestyle{fancy}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{wallpaper}
+
+% your new footer definitions here  
+\cfoot{}
+\lfoot{}
+\rhead{\thepage\ (\pageref{LastPage})}
+
+\begin{luacode}
+function isodate() 
+    local today = os.date("!\%Y-\%m-\%d")
+    tex.sprint(today)
+end    
+
+function metropoliadate()
+    local today = os.date("!\%d \%B \%Y")
+    tex.sprint(today)    
+end    
+\end{luacode}
+
+\begin{document}
+
+\makeatletter
+\renewcommand{\maketitle}{
+    \newgeometry{left=4.5cm}
+    \thispagestyle{empty}
+    \ThisULCornerWallPaper{1}{metropolia_en}
+    \vspace*{12.8cm}
+    {\Large\@author\\[1cm]\LARGE{\color[RGB]{31,73,125}\@title}}
+    \null\vfill
+    \parbox{.7\linewidth}{
+        Metropolia University of Applied Sciences\\
+        Bachelor of Engineering\\
+        Information Technology\\
+        %\directlua{isodate()} %ISO 8601
+        \directlua{metropoliadate()}
+        
+    }
+    \vspace*{-1.5cm}
+    \restoregeometry
+    \clearpage
+
+}
+\makeatother
+
+\LLCornerWallPaper{1}{footer_en}
+	\maketitle
+	\newpage
+	\setcounter{page}{1}
+
+\section*{Solution}	% for numbered section, remove '*'
+
+1.\\
+(a)\\
+Equation of the signal is given by:
+\begin{multline}\label{eq:1}
+ v(t)  = \frac{2A}{\pi} \left[ sin(2\pi f_0 t) - \frac{sin(2\pi \cdot 3f_0 t)}{3^2} + 
+   \frac{sin(2\pi \cdot 5 f_0 t)}{5^2} \right.\\- \left.\frac{sin(2\pi \cdot 7 f_0 t)}{7^2} + 
+   \frac{sin(2\pi \cdot 9 f_0 t)}{9^2} - \frac{sin(2\pi \cdot 11 f_0 t)}{11^2} + ... \right]
+\end{multline}
+
+Equation \ref{eq:1} shows ...
+
+\newpage
+(b)\\
+
+
+The gain of a reflector antenna is given by:
+\begin{equation}
+g = \frac{4\pi A_e}{\lambda^2}\label{eq:2}
+\end{equation} 
+
+
+
+\end{document}
