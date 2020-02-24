@@ -5,22 +5,23 @@
 %packages%
 
 \usepackage{luacode}
+\usepackage[numbers,square]{natbib}
 \usepackage[english]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
-%\usepackage{mathtools}
 \usepackage{xcolor}
 \usepackage{hyperref}  		%for links
 \hypersetup{colorlinks,breaklinks,
             urlcolor=[RGB]{0,0,0},    
-            linkcolor=[RGB]{0,0,0}
+            linkcolor=[RGB]{0,0,0},
+            citecolor=[RGB]{0,0,0}
             } 
 \usepackage{url}
 \urlstyle{same}
 \usepackage{graphicx}
 \usepackage{fontspec}
 \setmainfont{Arial}
-%\usepackage[nottoc]{tocbibind}
+
 
 \linespread{1.5} %line spacing
 
@@ -45,6 +46,10 @@
 \cfoot{}
 \lfoot{}
 \rhead{\thepage\ (\pageref{LastPage})}
+
+\makeatletter
+\renewcommand\@biblabel[1]{#1\hspace{1cm}} %from [1] to 1 with 1cm gap
+\makeatother
 
 \begin{luacode}
 function isodate() 
@@ -72,8 +77,8 @@ end
         Metropolia University of Applied Sciences\\
         Bachelor of Engineering\\
         Information Technology\\
-        %\directlua{isodate()} %ISO 8601
-        \directlua{metropoliadate()}
+        %\directlua{isodate()} % ISO 8601
+        \directlua{metropoliadate()} % e.g 20 January 2020
         
     }
     \vspace*{-1.5cm}
@@ -86,6 +91,10 @@ end
 \LLCornerWallPaper{1}{footer_en}
 	\maketitle
 	\newpage
+    % Uncomment the following lines if you want to include a table of contents
+    %\tableofcontents
+	%\clearpage
+	%\newpage
 	\setcounter{page}{1}
 
 \section*{Solution}	% for numbered section, remove '*'
@@ -110,6 +119,31 @@ The gain of a reflector antenna is given by:
 g = \frac{4\pi A_e}{\lambda^2}\label{eq:2}
 \end{equation} 
 
+%\section*{Theory}
+%
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ante sem, tempus vitae eros nec, semper ultricies magna.
+%Pellentesque porttitor vel dolor non convallis \cite{merriam:com}. Quisque sed ante vitae elit consectetur sagittis ut a nulla. Sed convallis
+%eu metus vitae ultricies. Nunc gravida massa eget erat sodales, vel aliquet enim elementum \cite[27]{HAKAK201922}.
+%
+%Aliquam viverra est eu tempus luctus. Integer a facilisis lacus. Fusce id leo in lacus elementum suscipit sit amet vitae felis. Vestibulum eu libero scelerisque,
+%dictum tortor eget, malesuada leo. Praesent egestas varius augue, et commodo nisl laoreet non. \cite[123--124.]{fuchs2015rethinking}
+%
+%Donec pulvinar imperdiet sem in ornare. Aliquam condimentum et felis nec dignissim. In facilisis, enim ut ultricies pretium,
+%lacus lorem tincidunt dui, eget eleifend ante tortor non felis [\citealp[392]{URH2015388}; \citealp[211]{XI2019210}]. In tincidunt rhoncus venenatis. Aliquam eu efficitur mi,
+%et congue mauris. Duis quis lacus eget ante gravida efficitur. Etiam nec sapien iaculis, consequat augue sit amet, euismod tellus.
+%Vestibulum congue metus sed venenatis dapibus. Aenean quis nulla eu dolor hendrerit euismod ut molestie lorem. Nulla feugiat maximus massa non consequat.
+%Donec dignissim venenatis est, lobortis eleifend lectus volutpat eget [\citealp[394]{URH2015388}; \citealp[27]{HAKAK201922}; \citealp[17]{huang2013gamification}; \citealp[2]{YILDIRIM201786}].
+
+
+
+%Uncomment the following if you plan to use references
+%\newpage
+%\bibliographystyle{vancouver}
+%\begin{flushleft}
+%\bibliography{references}
+%\end{flushleft}
+%\label{LastPage}~
+%\clearpage
 
 
 \end{document}
