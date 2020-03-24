@@ -69,9 +69,9 @@ end
 \renewcommand{\maketitle}{
     \newgeometry{left=4.5cm}
     \thispagestyle{empty}
-    \ThisULCornerWallPaper{1}{metropolia_en}
-    \vspace*{12.8cm}
-    {\Large\@author\\[1cm]\LARGE{\color[RGB]{31,73,125}\@title}}
+    \ThisCenterWallPaper{1}{old_cover}
+    \vspace*{9.5cm}
+    {\Large\@author\\[1cm]\LARGE{\color[RGB]{0,0,0}\@title}}
     \null\vfill
     \parbox{.7\linewidth}{
         Metropolia University of Applied Sciences\\
@@ -79,22 +79,23 @@ end
         Information Technology\\
         %\directlua{isodate()} % ISO 8601
         \directlua{metropoliadate()} % i.e 20 January 2020
-    }
-    \vspace*{-1.5cm}
+   }
+
+    \ThisLRCornerWallPaper{1}{old_metropolia}
     \restoregeometry
     \clearpage
 }
 \makeatother
 
-\LLCornerWallPaper{1}{footer_en}
 	\maketitle
-    \newpage
-    
+	\newpage
+
     % Uncomment the following lines if you want to include a table of contents
-    %\thispagestyle{empty}
-    %\tableofcontents
-	%\clearpage
-	%\newpage
+  	%\thispagestyle{empty}
+    % \ThisLRCornerWallPaper{1}{old_footer}
+    % \tableofcontents
+	% \clearpage
+	% \newpage
 	\setcounter{page}{1}
 
 \section*{Solution}	% for numbered section, remove '*'
