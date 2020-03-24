@@ -13,5 +13,8 @@ FOLDER = 'images_with_blackborder'
 
 if not os.path.exists(FOLDER):
     os.mkdir(FOLDER)
-for file in glob.glob('*.png'):
+
+images = glob.glob('*.png')
+images.sort(key=os.path.getmtime)
+for file in images:
     ImageOps.expand(Image.open(file), border=5, fill='black').save(os.path.join(FOLDER, file))
