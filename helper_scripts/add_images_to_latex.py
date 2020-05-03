@@ -1,5 +1,6 @@
 """
-A script for generating a 'tex' output file that contains image(s) in the current directory.
+A script for generating a 'tex' output file that contains image(s) in the
+current directory.
 """
 
 import os
@@ -15,6 +16,6 @@ with open('images.tex', 'w') as f:
         f.write(f"""\\begin{{figure}}[h]
     \\centering
     \\includegraphics[width=7.1cm]{{{image}}}
-    \\caption{{\\textit{{{name}}}}}
+    \\caption{{\\textit{{{name.replace('_', ' ')}}}}}
     \\label{{fig:{name}}}
 \\end{{figure}}\n\n""")
